@@ -52,15 +52,24 @@ list of states
 	{
 	end = (double) time(NULL);
 
-	digitalWrite(1,HIGH);delay(1000);digitalWrite(1,LOW);delay(1000);
-	if (end-start > 10){state = 2;}
+	digitalWrite(1,HIGH);
+	delay(1000);
+	digitalWrite(1,LOW);
+	delay(1000);
+	if (end-start > 10){
+	state = 2;}
 	}
 
 	else if (state == 2)
 	{
 	digitalWrite(2,HIGH);
-	if (digitalRead(3) == 0){state = 0;delay(500);}
-	if (digitalRead(0) == 1){state = 3; delay(500);start = (double) time(NULL);}
+	if (digitalRead(3) == 0){
+		state = 0;
+		delay(500);}
+	if (digitalRead(0) == 1){
+		state = 3;
+		delay(500);
+		start = (double) time(NULL);}
 	digitalWrite(2,LOW);
 	}
 
@@ -68,8 +77,14 @@ list of states
 	{
 	end = (double) time(NULL);
 	int seconds = (int)(end-start);
-	if (seconds > 10){state = 4; delay(500);seconds=10;ifttt("https://maker.ifttt.com/trigger/{event}/with/key/d9skB4EBqLxhC-7OYUtyb_", "Khan", "Ananta", "Alert");}
-	if (digitalRead(3) == 0){state = 0;delay(500);seconds=10;}
+	if (seconds > 10){state = 4; 
+			  delay(500);
+			  seconds=10;
+			  ifttt("https://maker.ifttt.com/trigger/{event}/with/key/d9skB4EBqLxhC-7OYUtyb_", "Khan", "Ananta", "Alert");}
+	if (digitalRead(3) == 0){
+		state = 0;
+		delay(500);
+		seconds=10;}
 
 	if (seconds % 4 == 0)
 	{
@@ -88,7 +103,9 @@ list of states
 	else if (state == 4)
 	{
 	softToneWrite(4,36);
-	if (digitalRead(3)==0){state = 0;delay(500);}
+	if (digitalRead(3)==0){
+		state = 0;
+		delay(500);}
 	softToneWrite(4,0);
 	}
 }
