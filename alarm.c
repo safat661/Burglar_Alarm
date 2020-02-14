@@ -69,7 +69,7 @@ list of states
 	{
 	end = (double) time(NULL);
 	int seconds = (int)(end-start);
-	if (seconds > 10){state = 4; delay(500);seconds=10;ifttt("https://maker.ifttt.com/trigger/{event}/with/key/d9skB4EBqLxhC-7OYUtyb_", "Khan", "Ananta", "Lab05");}
+	if (seconds > 10){state = 4; delay(500);seconds=10;ifttt("https://maker.ifttt.com/trigger/{event}/with/key/d9skB4EBqLxhC-7OYUtyb_", "Khan", "Ananta", "Alert");}
 	if (digitalRead(3) == 0){state = 0;delay(500);seconds=10;}
 
 	if (seconds % 4 == 0)
